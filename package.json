@@ -13,10 +13,13 @@
   },
   "scripts": {
     "build": "tsc",
+    "debug": "wtr src/test/*.ts --watch",
     "dev": "npm run watch & npm run serve",
     "lint": "eslint src --ext .ts",
     "serve": "web-dev-server --node-resolve --app-index demo/index.html --open",
-    "test": "wtr src/test/*.ts",
+    "test": "wtr src/test/*.ts --coverage",
+    "test:visual": "wtr src/test/visual/*.ts",
+    "test:update": "UPDATE_REFS=true wtr src/test/visual/*.ts",
     "watch": "tsc-watch"
   },
   "husky": {
@@ -34,12 +37,13 @@
   "devDependencies": {
     "@esm-bundle/chai": "^4.1.5",
     "@open-wc/testing-helpers": "~1.7.2",
+    "@types/sinon": "^9.0.5",
     "@typescript-eslint/eslint-plugin": "~4.0.1",
     "@typescript-eslint/parser": "~4.0.1",
-    "@types/sinon": "^9.0.5",
-    "@web/dev-server-esbuild": "^0.2.4",
     "@web/dev-server": "^0.0.7",
+    "@web/dev-server-esbuild": "^0.2.4",
     "@web/test-runner": "^0.7.21",
+    "@web/test-runner-visual-regression": "^0.1.5",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
