@@ -1,0 +1,54 @@
+{
+  "name": "vanilla-hamburger",
+  "version": "0.0.0",
+  "description": "A tiny framework agnostic hamburger button element for modern web apps",
+  "author": "Serhii Kulykov <iamkulykov@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web-padawan/vanilla-hamburger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/web-padawan/vanilla-hamburger/issues"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run watch & npm run serve",
+    "lint": "eslint src --ext .ts",
+    "serve": "web-dev-server --node-resolve --app-index demo/index.html --open",
+    "test": "wtr src/test/*.ts",
+    "watch": "tsc-watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.1.5",
+    "@open-wc/testing-helpers": "~1.7.2",
+    "@typescript-eslint/eslint-plugin": "~4.0.1",
+    "@typescript-eslint/parser": "~4.0.1",
+    "@types/sinon": "^9.0.5",
+    "@web/dev-server-esbuild": "^0.2.4",
+    "@web/dev-server": "^0.0.7",
+    "@web/test-runner": "^0.7.21",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "lit-html": "^1.3.0",
+    "prettier": "^2.1.1",
+    "sinon": "^9.0.3",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^4.0.2"
+  }
+}

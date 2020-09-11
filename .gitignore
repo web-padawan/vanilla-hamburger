@@ -1,0 +1,10 @@
+/node_modules/
+/coverage
+/lib
+/test/**/*.d.ts
+/test/**/*.d.ts.map
+/test/**/*.js
+/test/**/*.js.map
+*-burger.js
+*.d.ts
+*.map
