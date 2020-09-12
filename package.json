@@ -28,6 +28,7 @@
     "dev": "npm run watch & npm run serve",
     "lint": "eslint src --ext .ts",
     "serve": "web-dev-server --node-resolve --app-index demo/index.html --open",
+    "size": "npm run build && size-limit",
     "test": "wtr src/test/*.ts --coverage",
     "test:visual": "wtr src/test/visual/*.ts",
     "test:update": "UPDATE_REFS=true wtr src/test/visual/*.ts",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@esm-bundle/chai": "^4.1.5",
     "@open-wc/testing-helpers": "~1.7.2",
+    "@size-limit/preset-small-lib": "^4.6.0",
     "@types/sinon": "^9.0.5",
     "@typescript-eslint/eslint-plugin": "~4.0.1",
     "@typescript-eslint/parser": "~4.0.1",
@@ -63,8 +65,63 @@
     "lit-html": "^1.3.0",
     "prettier": "^2.1.1",
     "sinon": "^9.0.3",
+    "size-limit": "^4.6.0",
     "tsc-watch": "^4.2.9",
     "typescript": "^4.0.2",
     "web-component-analyzer": "^1.1.6"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "cross-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "fade-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "pivot-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "rotate-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "slant-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "sling-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "spin-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "spiral-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "squash-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "squeeze-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "tilt-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "turn-burger.js",
+      "limit": "2 KB"
+    },
+    {
+      "path": "twirl-burger.js",
+      "limit": "2 KB"
+    }
+  ]
 }
