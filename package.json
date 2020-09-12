@@ -18,9 +18,11 @@
     "/*-burger.d.ts",
     "/*-burger.d.ts.map",
     "/*-burger.js",
-    "/*-burger.js.map"
+    "/*-burger.js.map",
+    "custom-elements.json"
   ],
   "scripts": {
+    "analyze": "wca analyze *-burger.js --format json --outFile custom-elements.json",
     "build": "tsc",
     "debug": "wtr src/test/*.ts --watch",
     "dev": "npm run watch & npm run serve",
@@ -62,6 +64,7 @@
     "prettier": "^2.1.1",
     "sinon": "^9.0.3",
     "tsc-watch": "^4.2.9",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.2",
+    "web-component-analyzer": "^1.1.6"
   }
 }

@@ -5,13 +5,18 @@ export abstract class DirectionBurger extends Burger {
     return super.observedAttributes.concat('direction');
   }
 
-  private _direction!: string;
+  private _direction!: 'left' | 'right';
 
-  get direction(): string {
+  /**
+   * The animation direction of the icon, left or right.
+   * @type {'left' | 'right'}
+   * @default left
+   */
+  get direction(): 'left' | 'right' {
     return this._direction;
   }
 
-  set direction(distance: string) {
+  set direction(distance: 'left' | 'right') {
     this._direction = distance;
     this.update();
   }

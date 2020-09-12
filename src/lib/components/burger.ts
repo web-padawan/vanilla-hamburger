@@ -44,7 +44,7 @@ export abstract class Burger extends HTMLElement {
 
   protected abstract render(options: RenderOptions): void;
 
-  private _distance!: string;
+  private _distance!: 'sm' | 'md' | 'lg';
 
   private _easing!: string;
 
@@ -58,6 +58,11 @@ export abstract class Burger extends HTMLElement {
 
   private _updatePromise: Promise<void> = Promise.resolve();
 
+  /**
+   * A valid `transition-timing-function` CSS value, for example 'ease-out'.
+   * @type {string}
+   * @default cubic-bezier(0, 0, 0, 1)
+   */
   get easing(): string {
     return this._easing;
   }
@@ -67,15 +72,25 @@ export abstract class Burger extends HTMLElement {
     this.update();
   }
 
-  get distance(): string {
+  /**
+   * The vertical distance between the lines. Small (sm), medium (md) or large (lg).
+   * @type {'sm' | 'md' | 'lg'}
+   * @default md
+   */
+  get distance(): 'sm' | 'md' | 'lg' {
     return this._distance;
   }
 
-  set distance(distance: string) {
+  set distance(distance: 'sm' | 'md' | 'lg') {
     this._distance = distance;
     this.update();
   }
 
+  /**
+   * The duration of the animation. Can be set to zero if no animation is desired.
+   * @type {number}
+   * @default 0.4
+   */
   get duration(): number {
     return this._duration;
   }
@@ -85,6 +100,11 @@ export abstract class Burger extends HTMLElement {
     this.update();
   }
 
+  /**
+   * Set to true when element is pressed.
+   * @type {boolean}
+   * @default false
+   */
   get pressed(): boolean {
     return this._pressed;
   }
@@ -95,6 +115,11 @@ export abstract class Burger extends HTMLElement {
     this.update();
   }
 
+  /**
+   * Size of the icon. Should be a number between 12 and 48.
+   * @type {number}
+   * @default 32
+   */
   get size(): number {
     return this._size;
   }
