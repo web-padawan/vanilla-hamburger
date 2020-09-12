@@ -21,9 +21,9 @@ export class Twirl extends DirectionBurger {
 
     const isLeft = this.direction === 'left';
 
-    const half = time / 2;
-    const wrapTransition = `${half}s ${this.easing} ${pressed ? '0s' : `${half}s`}`;
-    const barTransition = `${half}s ${this.easing} ${pressed ? `${half}s` : '0s'}`;
+    const transition = `${time / 2}s ${this.easing}`;
+    const wrapTransition = `${transition} ${pressed ? '0s' : `${time / 2}s`}`;
+    const barTransition = `${transition} ${pressed ? `${time / 2}s` : '0s'}`;
 
     setStyles(this.style, {
       transition: `${time}s ${this.easing}`,
@@ -43,14 +43,14 @@ export class Twirl extends DirectionBurger {
     });
 
     setStyles(this._styles[2], {
-      transition: `${half}s ${this.easing}`,
+      transition,
       opacity: `${pressed ? '0' : '1'}`
     });
 
     setStyles(this._styles[3], {
       ...barStyles,
       top: `${topOffset + barHeight + margin}px`,
-      transition: `${half}s ${this.easing}`
+      transition
     });
 
     setStyles(this._styles[4], {
