@@ -4,6 +4,8 @@
   "description": "A tiny framework agnostic hamburger button element for modern web apps",
   "author": "Serhii Kulykov <iamkulykov@gmail.com>",
   "license": "MIT",
+  "main": "tilt-burger.js",
+  "module": "tilt-burger.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/web-padawan/vanilla-hamburger.git"
@@ -11,6 +13,13 @@
   "bugs": {
     "url": "https://github.com/web-padawan/vanilla-hamburger/issues"
   },
+  "files": [
+    "/lib",
+    "/*-burger.d.ts",
+    "/*-burger.d.ts.map",
+    "/*-burger.js",
+    "/*-burger.js.map"
+  ],
   "scripts": {
     "build": "tsc",
     "debug": "wtr src/test/*.ts --watch",
