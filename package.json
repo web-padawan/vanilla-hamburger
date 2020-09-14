@@ -14,6 +14,9 @@
     "url": "https://github.com/web-padawan/vanilla-hamburger/issues"
   },
   "files": [
+    "ACKNOWLEDGMENTS",
+    "LICENSE",
+    "README.md",
     "/lib",
     "/*-burger.d.ts",
     "/*-burger.d.ts.map",
