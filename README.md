@@ -3,12 +3,11 @@
 </p>
 
 <p align="center">
-  <h1 align="center">Animated hamburger menu icons as Custom Elements</h1>
+  <h1 align="center">Hamburger menu icons as Custom Elements</h1>
 </p>
 
 <p align="center">
-  <strong>vanilla-hamburger</strong> is a port of <a href="https://github.com/luukdv/hamburger-react">hamburger-react</a> to vanilla Custom Elements. Created to be as elegant and
-  performant as possible. This means no JavaScript animations, no transitions on non-cheap properties and a small size.
+  <strong>vanilla-hamburger</strong> is a port of <a href="https://github.com/luukdv/hamburger-react">hamburger-react</a> to vanilla Custom Elements.
 </p>
 
 ## Features
@@ -147,8 +146,8 @@ and does not support IE11 or legacy Edge.
 
 **vanilla-hamburger** has all the benefits of [hamburger-react](https://github.com/luukdv/hamburger-react#yet-another-hamburger-library) with one important difference.
 
-While `hamburger-react` does not have direct dependencies, it still expects you to use React or [Preact](https://github.com/omgovich/react-colorful#usage-with-preact).
-This means that Angular, Vue, Svelte or vanilla JS users would have an **extra** dependency in their apps.
+While `hamburger-react` does not have direct dependencies, it still expects you to use React. This
+means that Angular, Vue, Svelte or vanilla JS users would have an **extra** dependency in their apps.
 
 Now when all the evergreen browsers support standards based [Custom Elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements),
 it's perfect time to build such tiny and lightweight UI controls as web components rather than framework components.
