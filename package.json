@@ -30,6 +30,7 @@
     "debug": "wtr src/test/*.ts --watch",
     "dev": "npm run watch & npm run serve",
     "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build && npm run analyze",
     "release": "standard-version",
     "serve": "web-dev-server --node-resolve --app-index demo/index.html --open",
     "size": "npm run build && size-limit",
