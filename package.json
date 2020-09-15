@@ -30,6 +30,7 @@
     "debug": "wtr src/test/*.ts --watch",
     "dev": "npm run watch & npm run serve",
     "lint": "eslint src --ext .ts",
+    "release": "standard-version",
     "serve": "web-dev-server --node-resolve --app-index demo/index.html --open",
     "size": "npm run build && size-limit",
     "test": "wtr src/test/*.ts --coverage",
@@ -69,6 +70,7 @@
     "prettier": "^2.1.1",
     "sinon": "^9.0.3",
     "size-limit": "^4.6.0",
+    "standard-version": "^9.0.0",
     "tsc-watch": "^4.2.9",
     "typescript": "^4.0.2",
     "web-component-analyzer": "^1.1.6"
