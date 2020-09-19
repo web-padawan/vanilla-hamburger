@@ -20,7 +20,7 @@ const tpl = createTemplate(`
   }
 
   [part] {
-    background: var(--burger-color, currentColor);
+    background: currentColor;
     position: absolute;
   }
 </style>

@@ -123,13 +123,6 @@ describe('hamburger', () => {
         expect(getComputedStyle(bar).backgroundColor).to.equal('rgb(255, 0, 0)');
       });
     });
-
-    it('should set bars background with custom property', () => {
-      burger.style.setProperty('--burger-color', 'green');
-      bars.forEach((bar) => {
-        expect(getComputedStyle(bar).backgroundColor).to.equal('rgb(0, 128, 0)');
-      });
-    });
   });
 
   describe('pressed', () => {
