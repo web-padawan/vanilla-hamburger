@@ -81,6 +81,7 @@ allowing to override the default styles:
 
 ```css
 cross-burger {
+  color: #999;
   outline: none;
 }
 
