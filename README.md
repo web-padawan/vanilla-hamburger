@@ -78,14 +78,14 @@ When using one hamburger, ~1.6 KB will be added to your bundle (min + gzip).
 
 The following properties can be used to customize hamburger elements:
 
-| Property    | Default                      | Description                                                                     |
-| ----------- | ---------------------------- | ------------------------------------------------------------------------------- |
-| `direction` | `"left"`                     | The animation direction of the icon, left or right.                             |
-| `distance`  | `"md"`                       | The vertical distance between the lines. Small (sm), medium (md) or large (lg). |
-| `duration`  | `0.4`                        | The duration of the animation. Can be set to zero if no animation is desired.   |
-| `easing`    | `"cubic-bezier(0, 0, 0, 1)"` | A valid `transition-timing-function` CSS value, for example `ease-out`.         |
-| `pressed`   | `false`                      | Set to true when element is pressed.                                            |
-| `size`      | `32`                         | Size of the icon. Should be a number between 12 and 48.                         |
+| Property    | Default                    | Description                                             |
+| ----------- | -------------------------- | ------------------------------------------------------- |
+| `direction` | `left`                     | The animation direction of the icon, left or right.     |
+| `distance`  | `md`                       | The distance between the lines: `sm`, `md` or `lg`.     |
+| `duration`  | `0.4`                      | The duration of the animation. Can be set to zero.      |
+| `easing`    | `cubic-bezier(0, 0, 0, 1)` | A valid `transition-timing-function` CSS value.         |
+| `pressed`   | `false`                    | Set to true when element is pressed.                    |
+| `size`      | `32`                       | Size of the icon. Should be a number between 12 and 48. |
 
 **Note**: `direction` property is not supported by `<squash-burger>` and `<squeeze-burger>`.
 
