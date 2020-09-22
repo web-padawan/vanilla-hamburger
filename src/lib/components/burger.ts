@@ -26,7 +26,7 @@ const tpl = createTemplate(`
 </style>
 `);
 
-const defaultProps: Record<string, unknown> = {
+export const defaultProps: Record<string, unknown> = {
   size: 32,
   direction: 'left',
   distance: 'md',
