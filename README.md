@@ -1,5 +1,7 @@
 <p align="center">
-  <img alt="Preview" src="preview.gif" height="96" width="640">
+  <a href="https://web-padawan.github.io/vanilla-hamburger/">
+    <img alt="Preview" src="preview.gif" height="96" width="640">
+  </a>
 </p>
 
 <p align="center">
@@ -17,6 +19,10 @@
 - **Bulletproof**: Written in strict TypeScript and covered by 20+ tests.
 - **Framework-agnostic**: Can be used [with any framework](https://custom-elements-everywhere.com/).
 - **No dependencies**
+
+## Live demo
+
+- [Website](https://web-padawan.github.io/vanilla-hamburger/)
 
 ## Installation
 
