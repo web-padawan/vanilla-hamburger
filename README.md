@@ -8,6 +8,18 @@
   <h1 align="center">Hamburger menu icons as Custom Elements</h1>
 </p>
 
+<div align="center">
+  <a href="https://npmjs.org/package/vanilla-hamburger">
+    <img alt="npm" src="https://img.shields.io/npm/v/vanilla-hamburger.svg" />
+  </a>
+  <a href="https://travis-ci.org/web-padawan/vanilla-hamburger">
+    <img alt="build" src="https://travis-ci.org/web-padawan/vanilla-hamburger.svg?branch=master" />
+  </a>
+  <a href="https://bundlephobia.com/result?p=vanilla-hamburger">
+    <img alt="gzip size" src="https://badgen.net/bundlephobia/minzip/vanilla-hamburger" />
+  </a>
+</div>
+
 <p align="center">
   <strong>vanilla-hamburger</strong> is a port of <a href="https://github.com/luukdv/hamburger-react">hamburger-react</a> to vanilla Custom Elements.
 </p>
