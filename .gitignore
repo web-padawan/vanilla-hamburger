@@ -5,6 +5,7 @@
 /test/**/*.d.ts.map
 /test/**/*.js
 /test/**/*.js.map
+/demo/*.js
 *-burger.js
 *.d.ts
 *.map

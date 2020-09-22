@@ -1,0 +1,196 @@
+body {
+  background-color: #1a202c;
+  color: #fff;
+  font-family: "Recursive", Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  max-width: 768px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.header-description {
+  margin-bottom: 1.5rem;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.wrapper {
+  display: flex;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.burgers {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 480px;
+}
+
+.burgers > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 90px;
+  padding: 8px 16px 8px;
+  text-align: center;
+  color: #a0aec0;
+  transition: all 0.4s cubic-bezier(0, 0, 0, 1) 0s;
+}
+
+.burgers > .active {
+  background-color: #2d3748;
+  border-radius: 8px;
+}
+
+.burgers :not(div) {
+  margin-top: 4px;
+  color: #e2e8f0;
+}
+
+.knobs {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+  background-color: #2d3748;
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+label {
+  display: inline-block;
+  min-width: 75px;
+  color: #a0aec0;
+}
+
+input, select {
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  width: 160px;
+  border: solid 2px #805Ad5;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+.disabled > label {
+  opacity: 0.5;
+}
+
+.links {
+  margin-top: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+.links a {
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+demo-snippet {
+  display: block;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+pre,
+code {
+  font-size: 16px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  overflow: visible;
+}
+
+pre {
+  margin: 0;
+  padding: 1rem;
+  background: #1e1e1e;
+}
+
+.hljs {
+  display: block;
+}
+
+.hljs,
+.hljs-tag {
+  color: #d4d4d4;
+}
+
+.hljs-keyword,
+.hljs-name {
+  color: #569cd6;
+}
+
+.hljs-attr {
+  color: #9cdcfe;
+}
+
+.hljs-string {
+  color: #ce9178;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding-top: 40px;
+  }
+
+  .header-title {
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  h2,
+  .field,
+  demo-snippet {
+    display: none;
+  }
+
+  .burgers > div {
+    min-width: 65px;
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .header-description {
+    font-size: 15px;
+  }
+
+  .knobs {
+    padding: 0;
+    background: transparent;
+  }
+
+  .links {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .burgers > .active {
+    background-color: transparent;
+  }
+}
