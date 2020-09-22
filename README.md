@@ -23,6 +23,11 @@
 ## Live demo
 
 - [Website](https://web-padawan.github.io/vanilla-hamburger/)
+- [Angular example](https://components.studio/edit/B6UIy18tBWekjsdlcIzg)
+- [LitElement example](https://components.studio/edit/MwlJAn0K1B5neVtunpFI)
+- [React example](https://components.studio/edit/1Cta6NtUgJSSgyOYXB2n)
+- [Svelte example](https://components.studio/edit/uL3KYNle783i1ehAlXJa)
+- [Vue example](https://components.studio/edit/rsRiCxbap2Gh0wl3JZJn)
 
 ## Installation
 
