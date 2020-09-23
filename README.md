@@ -1,11 +1,7 @@
 <p align="center">
   <a href="https://web-padawan.github.io/vanilla-hamburger/">
-    <img alt="Preview" src="preview.gif" height="96" width="640">
+    <img alt="Preview" src="preview.gif" height="78" width="308">
   </a>
-</p>
-
-<p align="center">
-  <h1 align="center">Hamburger menu icons as Custom Elements</h1>
 </p>
 
 <div align="center">
