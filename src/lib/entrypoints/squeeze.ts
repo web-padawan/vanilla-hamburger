@@ -2,7 +2,7 @@ import { Burger } from '../components/burger.js';
 import { bar, createTemplate, createRoot, getStyles, setStyles } from '../utils/dom.js';
 import type { RenderOptions } from '../types';
 
-const tpl = createTemplate(`<div>${bar}</div><div>${bar}</div>`);
+const tpl = createTemplate(`<button type="button"></button><div>${bar}</div><div>${bar}</div>`);
 
 export class Squeeze extends Burger {
   private _styles!: CSSStyleDeclaration[];
