@@ -42,13 +42,14 @@ export const defaultProps: Record<string, unknown> = {
   direction: 'left',
   distance: 'md',
   duration: 0.4,
+  label: 'hamburger',
   easing: 'cubic-bezier(0, 0, 0, 1)',
   pressed: false
 };
 
 export abstract class Burger extends HTMLElement {
   static get observedAttributes(): string[] {
-    return ['distance', 'duration', 'easing', 'pressed', 'size'];
+    return ['distance', 'duration', 'easing', 'pressed', 'size', 'label'];
   }
 
   protected abstract get lines(): number;
@@ -64,6 +65,8 @@ export abstract class Burger extends HTMLElement {
   private _duration!: number;
 
   private _pressed!: boolean;
+
+  private _label!: string;
 
   private _size!: number;
 
@@ -111,6 +114,20 @@ export abstract class Burger extends HTMLElement {
   set duration(duration: number) {
     this._duration = duration;
     this.update();
+  }
+
+  /**
+   * Accessible label set on the internal <button> element for screen readers.
+   * @type {string}
+   * @default {hamburger}
+   */
+  get label(): string {
+    return this._label;
+  }
+
+  set label(label: string) {
+    this._label = label;
+    this._btn.setAttribute('aria-label', label);
   }
 
   /**

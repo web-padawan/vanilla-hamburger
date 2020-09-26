@@ -60,7 +60,7 @@ Or use one of the following content delivery networks:
 ## Usage
 
 ```html
-<tilt-burger size="lg" aria-label="Toggle"></tilt-burger>
+<tilt-burger size="lg" label="Menu"></tilt-burger>
 <script type="module">
   import 'vanilla-hamburger';
 
@@ -103,6 +103,7 @@ The following properties can be used to customize hamburger elements:
 | `distance`  | `md`                       | The distance between the lines: `sm`, `md` or `lg`.     |
 | `duration`  | `0.4`                      | The duration of the animation. Can be set to zero.      |
 | `easing`    | `cubic-bezier(0, 0, 0, 1)` | A valid `transition-timing-function` CSS value.         |
+| `label`     | `hamburger`                | Accessible label set on the internal `<button>`.        |
 | `pressed`   | `false`                    | Set to true when element is pressed.                    |
 | `size`      | `32`                       | Size of the icon. Should be a number between 12 and 48. |
 

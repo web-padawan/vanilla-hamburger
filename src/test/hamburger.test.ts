@@ -40,6 +40,10 @@ describe('hamburger', () => {
       expect(burger.duration).to.equal(0.4);
     });
 
+    it('should set default label property value', () => {
+      expect(burger.label).to.equal('hamburger');
+    });
+
     it('should set default size property value', () => {
       expect(burger.size).to.equal(32);
     });
@@ -108,6 +112,15 @@ describe('hamburger', () => {
     it('should update aria-pressed on pressed change', () => {
       burger.pressed = true;
       expect(button.getAttribute('aria-pressed')).to.equal('true');
+    });
+
+    it('should set aria-label on the native button', () => {
+      expect(button.getAttribute('aria-label')).to.equal('hamburger');
+    });
+
+    it('should update aria-label on label change', () => {
+      burger.label = 'burger';
+      expect(button.getAttribute('aria-label')).to.equal('burger');
     });
   });
 
