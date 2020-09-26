@@ -17,7 +17,7 @@
       <div class="header-content">
         <h1 class="header-title">Vanilla Hamburger 🍔</h1>
         <p class="header-description">
-          Animated hamburger menu icons. Port of
+          Port of
           <a href="https://github.com/luukdv/hamburger-react" target="_blank" rel="noreferrer">hamburger-react</a>
           to vanilla Custom Elements.
         </p>
@@ -126,6 +126,10 @@
           <label for="easing">Easing</label>
           <input id="easing" type="text" value="cubic-bezier(0, 0, 0, 1)" />
         </div>
+        <div class="field label">
+          <label for="label">Label</label>
+          <input id="label" type="text" value="hamburger" />
+        </div>
         <div class="field size">
           <label for="size">Size</label>
           <input id="size" type="number" value="32" min="12" max="48" />
@@ -165,6 +169,7 @@
       const direction = document.getElementById('direction');
       const distance = document.getElementById('distance');
       const easing = document.getElementById('easing');
+      const label = document.getElementById('label');
       const element = document.getElementById('element');
       const size = document.getElementById('size');
 
@@ -234,6 +239,10 @@
 
       easing.addEventListener('change', (event) => {
         setProperty('easing', event.target.value);
+      });
+
+      label.addEventListener('change', (event) => {
+        setProperty('label', event.target.value);
       });
 
       size.addEventListener('change', (event) => {
