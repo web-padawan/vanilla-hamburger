@@ -84,21 +84,30 @@ describe('hamburger', () => {
     });
   });
 
-  describe('host attributes', () => {
+  describe('native button', () => {
+    let button: HTMLElement;
+
     beforeEach(async () => {
       burger = await fixture(html`<tilt-burger></tilt-burger>`);
+      button = burger.shadowRoot?.querySelector('button') as HTMLElement;
     });
 
-    it('should set tabindex attribute to 0', () => {
-      expect(burger.getAttribute('tabindex')).to.equal('0');
+    it('should render native button in shadow root', () => {
+      expect(button).to.be.ok;
     });
 
-    it('should set role attribute to button', () => {
-      expect(burger.getAttribute('role')).to.equal('button');
+    it('should set aria-pressed to false by default', () => {
+      expect(button.getAttribute('aria-pressed')).to.equal('false');
     });
 
-    it('should set aria-pressed attribute to false', () => {
-      expect(burger.getAttribute('aria-pressed')).to.equal('false');
+    it('should update aria-pressed on button click', () => {
+      button.click();
+      expect(button.getAttribute('aria-pressed')).to.equal('true');
+    });
+
+    it('should update aria-pressed on pressed change', () => {
+      burger.pressed = true;
+      expect(button.getAttribute('aria-pressed')).to.equal('true');
     });
   });
 
@@ -126,13 +135,6 @@ describe('hamburger', () => {
   });
 
   describe('pressed', () => {
-    const pressKey = (node: HTMLElement, key: string) => {
-      const event = new CustomEvent('keydown');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (event as any).key = key;
-      node.dispatchEvent(event);
-    };
-
     beforeEach(async () => {
       burger = await fixture(html`<tilt-burger></tilt-burger>`);
     });
@@ -142,25 +144,6 @@ describe('hamburger', () => {
       expect(burger.pressed).to.equal(true);
       burger.dispatchEvent(new CustomEvent('click'));
       expect(burger.pressed).to.equal(false);
-    });
-
-    it('should toggle pressed property on Enter', () => {
-      pressKey(burger, 'Enter');
-      expect(burger.pressed).to.equal(true);
-      pressKey(burger, 'Enter');
-      expect(burger.pressed).to.equal(false);
-    });
-
-    it('should not toggle pressed property on Tab', () => {
-      pressKey(burger, 'Tab');
-      expect(burger.pressed).to.equal(false);
-    });
-
-    it('should toggle aria-pressed attribute', () => {
-      burger.pressed = true;
-      expect(burger.getAttribute('aria-pressed')).to.equal('true');
-      burger.pressed = false;
-      expect(burger.getAttribute('aria-pressed')).to.equal('false');
     });
 
     it('should fire pressed-changed event when property changes', () => {

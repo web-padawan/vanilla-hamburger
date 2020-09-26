@@ -19,6 +19,17 @@ const tpl = createTemplate(`
     display: none !important;
   }
 
+  button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    -webkit-appearance: none;
+    background: transparent;
+  }
+
   [part] {
     background: currentColor;
     position: absolute;
@@ -43,6 +54,8 @@ export abstract class Burger extends HTMLElement {
   protected abstract get lines(): number;
 
   protected abstract render(options: RenderOptions): void;
+
+  private _btn!: HTMLButtonElement;
 
   private _distance!: 'sm' | 'md' | 'lg';
 
@@ -111,7 +124,7 @@ export abstract class Burger extends HTMLElement {
 
   set pressed(pressed: boolean) {
     this._pressed = pressed;
-    this.setAttribute('aria-pressed', `${!!pressed}`);
+    this._btn.setAttribute('aria-pressed', `${!!pressed}`);
     this.update();
   }
 
@@ -133,12 +146,10 @@ export abstract class Burger extends HTMLElement {
     super();
     createRoot(this, tpl);
     this.addEventListener('click', this);
-    this.addEventListener('keydown', this);
   }
 
   connectedCallback(): void {
-    this.setAttribute('role', 'button');
-    this.setAttribute('tabindex', '0');
+    this._btn = (this.shadowRoot as ShadowRoot).querySelector('button') as HTMLButtonElement;
 
     (this.constructor as typeof Burger).observedAttributes.forEach((k) => {
       // A user may set a property on an _instance_ of an element,
@@ -169,7 +180,7 @@ export abstract class Burger extends HTMLElement {
   }
 
   handleEvent(event: KeyboardEvent | MouseEvent): void {
-    if ((event.type === 'keydown' && (event as KeyboardEvent).key === 'Enter') || event.type === 'click') {
+    if (event.type === 'click') {
       this.pressed = !this.pressed;
       this.dispatchEvent(new CustomEvent('pressed-changed', { detail: { value: this.pressed } }));
     }
