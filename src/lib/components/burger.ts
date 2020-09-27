@@ -37,6 +37,8 @@ const tpl = createTemplate(`
 </style>
 `);
 
+const btn = Symbol('btn');
+
 export const defaultProps: Record<string, unknown> = {
   size: 32,
   direction: 'left',
@@ -56,7 +58,7 @@ export abstract class Burger extends HTMLElement {
 
   protected abstract render(options: RenderOptions): void;
 
-  private _btn!: HTMLButtonElement;
+  private [btn]!: HTMLButtonElement;
 
   private _distance!: 'sm' | 'md' | 'lg';
 
@@ -127,7 +129,7 @@ export abstract class Burger extends HTMLElement {
 
   set label(label: string) {
     this._label = label;
-    this._btn && this._btn.setAttribute('aria-label', label);
+    this[btn] && this[btn].setAttribute('aria-label', label);
   }
 
   /**
@@ -141,7 +143,7 @@ export abstract class Burger extends HTMLElement {
 
   set pressed(pressed: boolean) {
     this._pressed = pressed;
-    this._btn && this._btn.setAttribute('aria-pressed', `${!!pressed}`);
+    this[btn] && this[btn].setAttribute('aria-pressed', `${!!pressed}`);
     this.update();
   }
 
@@ -166,7 +168,7 @@ export abstract class Burger extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this._btn = (this.shadowRoot as ShadowRoot).querySelector('button') as HTMLButtonElement;
+    this[btn] = (this.shadowRoot as ShadowRoot).querySelector('button') as HTMLButtonElement;
 
     (this.constructor as typeof Burger).observedAttributes.forEach((k) => {
       // A user may set a property on an _instance_ of an element,
@@ -204,11 +206,11 @@ export abstract class Burger extends HTMLElement {
   }
 
   focus(): void {
-    this._btn && this._btn.focus();
+    this[btn] && this[btn].focus();
   }
 
   blur(): void {
-    this._btn && this._btn.blur();
+    this[btn] && this[btn].blur();
   }
 
   protected getRenderOptions(): RenderOptions {
