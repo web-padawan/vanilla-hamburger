@@ -40,7 +40,7 @@ const tpl = createTemplate(`
 
 const btn = Symbol('btn');
 
-export const defaultProps: Record<string, unknown> = {
+export const defaultProps: BurgerProps = {
   size: 32,
   direction: 'left',
   distance: 'md',
@@ -181,7 +181,7 @@ export abstract class Burger extends HTMLElement {
         this[k as keyof this] = value;
       } else if (!this[k as keyof this]) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this[k as keyof this] = defaultProps[k] as any;
+        this[k as keyof this] = defaultProps[k as keyof BurgerProps] as any;
       }
     });
   }

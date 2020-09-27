@@ -4,6 +4,7 @@ import { XML } from 'highlight-ts/es/languages/xml.js';
 import { JavaScript } from 'highlight-ts/es/languages/javascript.js';
 import { init, process } from 'highlight-ts/es/process.js';
 import { defaultProps } from '../lib/components/burger.js';
+import type { BurgerProps } from '../lib/types.js';
 
 registerLanguages(XML, JavaScript);
 
@@ -28,7 +29,7 @@ export class DemoSnippet extends HTMLElement {
 
     markup += `<${element}`;
 
-    const attrs = knobs.filter(({ name, value }) => value && value != defaultProps[name]);
+    const attrs = knobs.filter(({ name, value }) => value && value != defaultProps[name as keyof BurgerProps]);
 
     attrs
       .sort((a, b) => (a.name > b.name ? 1 : -1))

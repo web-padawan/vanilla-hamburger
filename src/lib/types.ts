@@ -1,3 +1,13 @@
+export interface BurgerProps {
+  direction: 'left' | 'right';
+  distance: 'sm' | 'md' | 'lg';
+  duration: number;
+  easing: string;
+  label: string;
+  pressed: boolean;
+  size: number;
+}
+
 export interface RenderOptions {
   barHeight: number;
   barStyles: Record<string, string>;
