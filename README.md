@@ -117,30 +117,26 @@ allowing to override the default styles:
 ```css
 cross-burger {
   color: #999;
-  outline: none;
 }
 
 cross-burger::part(bar) {
   border-radius: 9em;
 }
 
-cross-burger::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+cross-burger::part(button) {
+  outline: none;
+  background: currentColor;
   border-radius: 50%;
   opacity: 0;
-  background-color: currentColor;
   transition: opacity 0.5s;
 }
 
-cross-burger:hover::before,
-cross-burger:focus::before {
-  opacity: 0.08;
-  transition-duration: 0.2s;
+cross-burger::part(button):hover {
+  opacity: 0.12;
+}
+
+cross-burger::part(button):focus {
+  opacity: 0.16;
 }
 ```
 
