@@ -1,22 +1,23 @@
 import { DirectionBurger } from '../components/direction-burger.js';
 import { bar, createTemplate, createRoot, getStyles, setStyles } from '../utils/dom.js';
+import { render, styles } from '../internals.js';
 import type { RenderOptions } from '../types';
 
 const tpl = createTemplate(`<button part="button" type="button"></button>${bar}${bar}${bar}`);
 
 export class Sling extends DirectionBurger {
-  private _styles!: CSSStyleDeclaration[];
+  private [styles]!: CSSStyleDeclaration[];
 
   constructor() {
     super();
-    this._styles = getStyles(createRoot(this, tpl));
+    this[styles] = getStyles(createRoot(this, tpl));
   }
 
   protected get lines(): number {
     return 3;
   }
 
-  protected render(options: RenderOptions): void {
+  protected [render](options: RenderOptions): void {
     const { barHeight, barStyles, margin, move, pressed, time, topOffset } = options;
 
     const isLeft = this.direction === 'left';
@@ -27,7 +28,7 @@ export class Sling extends DirectionBurger {
       transform: `${pressed ? `rotateY(${180 * (isLeft ? -1 : 1)}deg)` : 'none'}`
     });
 
-    setStyles(this._styles[0], {
+    setStyles(this[styles][0], {
       ...barStyles,
       top: `${topOffset}px`,
       transition,
@@ -36,14 +37,14 @@ export class Sling extends DirectionBurger {
       }`
     });
 
-    setStyles(this._styles[1], {
+    setStyles(this[styles][1], {
       ...barStyles,
       top: `${topOffset + barHeight + margin}px`,
       transition,
       transform: `${pressed ? `scale(0, 1) translate(${move * 20 * (isLeft ? -1 : 1)}px, 0)` : 'none'}`
     });
 
-    setStyles(this._styles[2], {
+    setStyles(this[styles][2], {
       ...barStyles,
       top: `${topOffset + barHeight * 2 + margin * 2}px`,
       transition,

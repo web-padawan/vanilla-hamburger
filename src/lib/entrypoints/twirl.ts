@@ -1,5 +1,6 @@
 import { DirectionBurger } from '../components/direction-burger.js';
 import { bar, createTemplate, createRoot, getStyles, setStyles } from '../utils/dom.js';
+import { render, styles } from '../internals.js';
 import type { RenderOptions } from '../types';
 
 const tpl = createTemplate(
@@ -7,18 +8,18 @@ const tpl = createTemplate(
 );
 
 export class Twirl extends DirectionBurger {
-  private _styles!: CSSStyleDeclaration[];
+  private [styles]!: CSSStyleDeclaration[];
 
   constructor() {
     super();
-    this._styles = getStyles(createRoot(this, tpl));
+    this[styles] = getStyles(createRoot(this, tpl));
   }
 
   protected get lines(): number {
     return 3;
   }
 
-  protected render(options: RenderOptions): void {
+  protected [render](options: RenderOptions): void {
     const { barHeight, barStyles, margin, pressed, time, topOffset } = options;
 
     const isLeft = this.direction === 'left';
@@ -32,35 +33,35 @@ export class Twirl extends DirectionBurger {
       transform: `${pressed ? `rotate(${90 * (isLeft ? -1 : 1)}deg)` : 'none'}`
     });
 
-    setStyles(this._styles[0], {
+    setStyles(this[styles][0], {
       transition: wrapTransition,
       transform: `${pressed ? `translateY(${barHeight + margin}px)` : 'none'}`
     });
 
-    setStyles(this._styles[1], {
+    setStyles(this[styles][1], {
       ...barStyles,
       top: `${topOffset}px`,
       transition: barTransition,
       transform: `${pressed ? `rotate(${45 * (isLeft ? 1 : -1)}deg)` : 'none'}`
     });
 
-    setStyles(this._styles[2], {
+    setStyles(this[styles][2], {
       transition,
       opacity: `${pressed ? '0' : '1'}`
     });
 
-    setStyles(this._styles[3], {
+    setStyles(this[styles][3], {
       ...barStyles,
       top: `${topOffset + barHeight + margin}px`,
       transition
     });
 
-    setStyles(this._styles[4], {
+    setStyles(this[styles][4], {
       transition: wrapTransition,
       transform: `${pressed ? `translateY(-${barHeight + margin}px)` : 'none'}`
     });
 
-    setStyles(this._styles[5], {
+    setStyles(this[styles][5], {
       ...barStyles,
       top: `${topOffset + barHeight * 2 + margin * 2}px`,
       transition: barTransition,

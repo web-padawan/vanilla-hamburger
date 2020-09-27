@@ -1,11 +1,10 @@
 import { Burger } from './burger.js';
+import { props, update } from '../internals';
 
 export abstract class DirectionBurger extends Burger {
   static get observedAttributes(): string[] {
     return super.observedAttributes.concat('direction');
   }
-
-  private _direction!: 'left' | 'right';
 
   /**
    * The animation direction of the icon, left or right.
@@ -13,11 +12,11 @@ export abstract class DirectionBurger extends Burger {
    * @default left
    */
   get direction(): 'left' | 'right' {
-    return this._direction;
+    return this[props].direction;
   }
 
   set direction(distance: 'left' | 'right') {
-    this._direction = distance;
-    this.update();
+    this[props].direction = distance;
+    this[update]();
   }
 }

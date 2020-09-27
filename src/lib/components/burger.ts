@@ -1,5 +1,6 @@
 import { createTemplate, createRoot } from '../utils/dom.js';
-import type { RenderOptions } from '../types';
+import { props, render, update } from '../internals.js';
+import type { BurgerProps, RenderOptions } from '../types';
 
 const AREA = 48;
 
@@ -39,6 +40,10 @@ const tpl = createTemplate(`
 `);
 
 const btn = Symbol('btn');
+const batch = Symbol('batch');
+const updating = Symbol('updating');
+const prepare = Symbol('prepare');
+const queue = Symbol('queue');
 
 export const defaultProps: BurgerProps = {
   size: 32,
@@ -57,25 +62,15 @@ export abstract class Burger extends HTMLElement {
 
   protected abstract get lines(): number;
 
-  protected abstract render(options: RenderOptions): void;
+  protected abstract [render](options: RenderOptions): void;
 
   private [btn]!: HTMLButtonElement;
 
-  private _distance!: 'sm' | 'md' | 'lg';
+  private [props]: BurgerProps = {} as BurgerProps;
 
-  private _easing!: string;
+  private [updating]!: boolean;
 
-  private _duration!: number;
-
-  private _pressed!: boolean;
-
-  private _label!: string;
-
-  private _size!: number;
-
-  private _updating!: boolean;
-
-  private _updatePromise: Promise<void> = Promise.resolve();
+  private [batch]!: Promise<void>;
 
   /**
    * A valid `transition-timing-function` CSS value, for example 'ease-out'.
@@ -83,12 +78,12 @@ export abstract class Burger extends HTMLElement {
    * @default cubic-bezier(0, 0, 0, 1)
    */
   get easing(): string {
-    return this._easing;
+    return this[props].easing;
   }
 
   set easing(easing: string) {
-    this._easing = easing;
-    this.update();
+    this[props].easing = easing;
+    this[update]();
   }
 
   /**
@@ -97,12 +92,12 @@ export abstract class Burger extends HTMLElement {
    * @default md
    */
   get distance(): 'sm' | 'md' | 'lg' {
-    return this._distance;
+    return this[props].distance;
   }
 
   set distance(distance: 'sm' | 'md' | 'lg') {
-    this._distance = distance;
-    this.update();
+    this[props].distance = distance;
+    this[update]();
   }
 
   /**
@@ -111,12 +106,12 @@ export abstract class Burger extends HTMLElement {
    * @default 0.4
    */
   get duration(): number {
-    return this._duration;
+    return this[props].duration;
   }
 
   set duration(duration: number) {
-    this._duration = duration;
-    this.update();
+    this[props].duration = duration;
+    this[update]();
   }
 
   /**
@@ -125,11 +120,11 @@ export abstract class Burger extends HTMLElement {
    * @default {hamburger}
    */
   get label(): string {
-    return this._label;
+    return this[props].label;
   }
 
   set label(label: string) {
-    this._label = label;
+    this[props].label = label;
     this[btn] && this[btn].setAttribute('aria-label', label);
   }
 
@@ -139,13 +134,13 @@ export abstract class Burger extends HTMLElement {
    * @default false
    */
   get pressed(): boolean {
-    return this._pressed;
+    return this[props].pressed;
   }
 
   set pressed(pressed: boolean) {
-    this._pressed = pressed;
+    this[props].pressed = pressed;
     this[btn] && this[btn].setAttribute('aria-pressed', `${!!pressed}`);
-    this.update();
+    this[update]();
   }
 
   /**
@@ -154,12 +149,12 @@ export abstract class Burger extends HTMLElement {
    * @default 32
    */
   get size(): number {
-    return this._size;
+    return this[props].size;
   }
 
   set size(size: number) {
-    this._size = size;
-    this.update();
+    this[props].size = size;
+    this[update]();
   }
 
   constructor() {
@@ -214,7 +209,7 @@ export abstract class Burger extends HTMLElement {
     this[btn] && this[btn].blur();
   }
 
-  protected getRenderOptions(): RenderOptions {
+  private [prepare](): RenderOptions {
     const { distance, lines } = this;
 
     const width = Math.max(12, Math.min(AREA, this.size));
@@ -263,20 +258,20 @@ export abstract class Burger extends HTMLElement {
     };
   }
 
-  protected update(): void {
-    if (!this._updating) {
-      this._updatePromise = this._enqueueUpdate();
+  protected [update](): void {
+    if (!this[updating]) {
+      this[batch] = this[queue]();
     }
   }
 
-  private async _enqueueUpdate(): Promise<void> {
-    this._updating = true;
+  private async [queue](): Promise<void> {
+    this[updating] = true;
 
     // Ensure that property changes are batched.
-    await this._updatePromise;
+    await this[batch];
 
-    this.render(this.getRenderOptions());
+    this[render](this[prepare]());
 
-    this._updating = false;
+    this[updating] = false;
   }
 }
