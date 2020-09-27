@@ -2,7 +2,7 @@ import { DirectionBurger } from '../components/direction-burger.js';
 import { bar, createTemplate, createRoot, getStyles, setStyles } from '../utils/dom.js';
 import type { RenderOptions } from '../types';
 
-const tpl = createTemplate(`<button type="button"></button>${bar}${bar}${bar}`);
+const tpl = createTemplate(`<button part="button" type="button"></button>${bar}${bar}${bar}`);
 
 export class Spin extends DirectionBurger {
   private _styles!: CSSStyleDeclaration[];

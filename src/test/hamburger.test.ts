@@ -100,6 +100,10 @@ describe('hamburger', () => {
       expect(button).to.be.ok;
     });
 
+    it('should set part attribute on the native button', () => {
+      expect(button.getAttribute('part')).to.equal('button');
+    });
+
     it('should set aria-pressed to false by default', () => {
       expect(button.getAttribute('aria-pressed')).to.equal('false');
     });

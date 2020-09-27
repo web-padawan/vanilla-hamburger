@@ -28,9 +28,10 @@ const tpl = createTemplate(`
     border: none;
     -webkit-appearance: none;
     background: transparent;
+    color: inherit;
   }
 
-  [part] {
+  [part="bar"] {
     background: currentColor;
     position: absolute;
   }
