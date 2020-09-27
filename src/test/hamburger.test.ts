@@ -114,6 +114,18 @@ describe('hamburger', () => {
       expect(button.getAttribute('aria-pressed')).to.equal('true');
     });
 
+    it('should not throw on pressed change if not connected', () => {
+      expect(() => {
+        document.createElement('tilt-burger').pressed = true;
+      }).to.not.throw(Error);
+    });
+
+    it('should not throw on label change if not connected', () => {
+      expect(() => {
+        document.createElement('tilt-burger').label = 'menu';
+      }).to.not.throw(Error);
+    });
+
     it('should set aria-label on the native button', () => {
       expect(button.getAttribute('aria-label')).to.equal('hamburger');
     });

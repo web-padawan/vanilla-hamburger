@@ -127,7 +127,7 @@ export abstract class Burger extends HTMLElement {
 
   set label(label: string) {
     this._label = label;
-    this._btn.setAttribute('aria-label', label);
+    this._btn && this._btn.setAttribute('aria-label', label);
   }
 
   /**
@@ -141,7 +141,7 @@ export abstract class Burger extends HTMLElement {
 
   set pressed(pressed: boolean) {
     this._pressed = pressed;
-    this._btn.setAttribute('aria-pressed', `${!!pressed}`);
+    this._btn && this._btn.setAttribute('aria-pressed', `${!!pressed}`);
     this.update();
   }
 
