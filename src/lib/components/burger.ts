@@ -203,6 +203,14 @@ export abstract class Burger extends HTMLElement {
     }
   }
 
+  focus(): void {
+    this._btn && this._btn.focus();
+  }
+
+  blur(): void {
+    this._btn && this._btn.blur();
+  }
+
   protected getRenderOptions(): RenderOptions {
     const { distance, lines } = this;
 

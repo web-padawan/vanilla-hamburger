@@ -122,6 +122,30 @@ describe('hamburger', () => {
       burger.label = 'burger';
       expect(button.getAttribute('aria-label')).to.equal('burger');
     });
+
+    it('should focus native button using focus method', () => {
+      const spy = sinon.spy(button, 'focus');
+      burger.focus();
+      expect(spy.calledOnce).to.be.true;
+    });
+
+    it('should blur native button using blur method', () => {
+      const spy = sinon.spy(button, 'blur');
+      burger.blur();
+      expect(spy.calledOnce).to.be.true;
+    });
+
+    it('should not throw on focus if not connected', () => {
+      expect(() => {
+        document.createElement('tilt-burger').focus();
+      }).to.not.throw(Error);
+    });
+
+    it('should not throw on blur if not connected', () => {
+      expect(() => {
+        document.createElement('tilt-burger').blur();
+      }).to.not.throw(Error);
+    });
   });
 
   describe('styles', () => {
