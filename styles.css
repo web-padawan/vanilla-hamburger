@@ -17,7 +17,7 @@ body {
 
 .header-description {
   margin-bottom: 1.5rem;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.4;
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 label {
@@ -106,7 +106,6 @@ a:hover {
 
 .links a {
   margin-right: 16px;
-  font-size: 20px;
 }
 
 demo-snippet {
@@ -150,7 +149,7 @@ pre {
   color: #ce9178;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 799px) {
   .header {
     padding-top: 40px;
   }
@@ -177,11 +176,15 @@ pre {
   }
 
   .header-description {
-    font-size: 15px;
+    max-width: 300px;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin: 0 auto 1.5rem;
   }
 
   .knobs {
     padding: 0;
+    max-width: 100%;
     background: transparent;
   }
 
