@@ -40,10 +40,8 @@ const tpl = createTemplate(`
 `);
 
 const btn = Symbol('btn');
-const batch = Symbol('batch');
 const updating = Symbol('updating');
 const prepare = Symbol('prepare');
-const queue = Symbol('queue');
 
 export const defaultProps: BurgerProps = {
   size: 32,
@@ -69,8 +67,6 @@ export abstract class Burger extends HTMLElement {
   private [props]: BurgerProps = {} as BurgerProps;
 
   private [updating]!: boolean;
-
-  private [batch]!: Promise<void>;
 
   /**
    * A valid `transition-timing-function` CSS value, for example 'ease-out'.
@@ -258,20 +254,14 @@ export abstract class Burger extends HTMLElement {
     };
   }
 
-  protected [update](): void {
+  protected async [update](): Promise<void> {
     if (!this[updating]) {
-      this[batch] = this[queue]();
+      this[updating] = true;
+
+      // Ensure that property changes are batched.
+      this[updating] = await false;
+
+      this[render](this[prepare]());
     }
-  }
-
-  private async [queue](): Promise<void> {
-    this[updating] = true;
-
-    // Ensure that property changes are batched.
-    await this[batch];
-
-    this[render](this[prepare]());
-
-    this[updating] = false;
   }
 }
