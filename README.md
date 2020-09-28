@@ -73,6 +73,20 @@ Or use one of the following content delivery networks:
 </script>
 ```
 
+## ES modules
+
+**vanilla-hamburger** is authored using ES modules which are [natively supported](https://caniuse.com/es6-module)
+by modern browsers. However, it also uses "bare module imports" which are [not yet standardized](https://github.com/WICG/import-maps)
+and require a small transform.
+
+We recommend the following tools for the ES modules based development:
+
+- [`@web/dev-server`](https://modern-web.dev/docs/dev-server/overview/) resolves bare module imports on the fly.
+- [`snowpack`](https://www.snowpack.dev) performs one-time transform when installing dependencies.
+- [`@rollup/plugin-node-resolve`](https://github.com/rollup/plugins/tree/master/packages/node-resolve) is needed when using Rollup.
+
+None of these tools are needed when importing the component from CDN.
+
 ## Available variants
 
 **vanilla-hamburger** provides 13 separate elements for different hamburger types.
