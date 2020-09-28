@@ -13,6 +13,21 @@
   "bugs": {
     "url": "https://github.com/web-padawan/vanilla-hamburger/issues"
   },
+  "keywords": [
+    "webcomponents",
+    "web-components",
+    "webcomponent",
+    "web-component",
+    "custom-element",
+    "customelement",
+    "hamburger",
+    "burger",
+    "menu",
+    "toggle",
+    "toggle-button",
+    "burger-menu",
+    "hamburger-menu"
+  ],
   "files": [
     "ACKNOWLEDGMENTS",
     "LICENSE",
