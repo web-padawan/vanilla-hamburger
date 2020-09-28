@@ -158,10 +158,11 @@ customElements.define('custom-burger', class extends Cross {});
 It is recommended to have a tap/click area of at least 48x48 pixels. Therefore, padding will be
 added around the icon to create a surface of exactly this size.
 
-Keyboard interaction is provided with the `enter` key, and the icon element has the recommended
-accessibility attributes (such as `role` and `aria-pressed`).
+Keyboard interaction is provided using native `<button>`, which dispatches the `click` event on
+<kbd>Enter</kbd> and <kbd>Space</kbd> keys. The underlying native button has `aria-pressed` attribute
+set based on the `pressed` property.
 
-Remember to use `aria-label` attribute to provide an accessible label for the icon.
+Remember to use `label` property to provide an accessible label for the native button.
 
 ## TypeScript support
 
