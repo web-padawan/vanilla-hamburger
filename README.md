@@ -24,8 +24,10 @@
 
 - **Small**: Just 1,6 KB (minified and gzipped). [Size Limit](https://github.com/ai/size-limit) controls the size.
 - **Fast**: Built with standards based Custom Elements.
-- **Bulletproof**: Written in strict TypeScript and covered by 20+ tests.
+- **Bulletproof**: Written in strict TypeScript and covered by 30+ tests.
 - **Framework-agnostic**: Can be used [with any framework](https://custom-elements-everywhere.com/).
+- **Simple**: Uses native `<button>` with a `click` listener internally.
+- **Accessible**: Follows [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#button) guidelines for toggle buttons.
 - **No dependencies**
 
 ## Live demo
