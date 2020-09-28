@@ -2,6 +2,7 @@
 /coverage
 /dist
 /lib
+/src/lib/styles/*.ts
 /test/**/*.d.ts
 /test/**/*.d.ts.map
 /test/**/*.js

@@ -1,43 +1,11 @@
 import { createTemplate, createRoot } from '../utils/dom.js';
 import { props, render, update } from '../internals.js';
+import css from '../styles/burger.js';
 import type { BurgerProps, RenderOptions } from '../types';
 
 const AREA = 48;
 
-const tpl = createTemplate(`
-<style>
-  :host {
-    display: block;
-    position: relative;
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  :host([hidden]) {
-    display: none !important;
-  }
-
-  button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    -webkit-appearance: none;
-    background: transparent;
-    color: inherit;
-  }
-
-  [part="bar"] {
-    background: currentColor;
-    position: absolute;
-  }
-</style>
-`);
+const tpl = createTemplate(`<style>${css}</style>`);
 
 const btn = Symbol('btn');
 const updating = Symbol('updating');
