@@ -177,7 +177,6 @@ export abstract class Burger extends HTMLElement {
     const { distance, lines } = this;
 
     const width = Math.max(12, Math.min(AREA, this.size));
-    const room = Math.round((AREA - width) / 2);
 
     const barHeightRaw = width / 12;
     const barHeight = Math.round(barHeightRaw);
@@ -187,7 +186,6 @@ export abstract class Burger extends HTMLElement {
     const margin = Math.round(marginRaw);
 
     const height = barHeight * lines + margin * (lines - 1);
-    const topOffset = Math.round((AREA - height) / 2);
 
     const translate =
       lines === 3
@@ -203,11 +201,10 @@ export abstract class Burger extends HTMLElement {
         : 7.6675;
 
     const deviation = (barHeightRaw - barHeight + (marginRaw - margin)) / (lines === 3 ? 1 : 2);
-    const move = parseFloat((width / translate - deviation / (4 / 3)).toFixed(2));
 
     const barStyles = {
       height: `${barHeight}px`,
-      left: `${room}px`,
+      left: `${Math.round((AREA - width) / 2)}px`,
       width: `${width}px`
     };
 
@@ -215,10 +212,10 @@ export abstract class Burger extends HTMLElement {
       barHeight,
       barStyles,
       margin,
-      move,
+      move: parseFloat((width / translate - deviation / (4 / 3)).toFixed(2)),
       pressed: this.pressed,
       time: Math.max(0, this.duration),
-      topOffset
+      topOffset: Math.round((AREA - height) / 2)
     };
   }
 
