@@ -108,55 +108,55 @@
   "size-limit": [
     {
       "path": "cross-burger.js",
-      "limit": "2 KB"
+      "limit": "1.6 KB"
     },
     {
       "path": "fade-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "pivot-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "rotate-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "slant-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "sling-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "spin-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "spiral-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "squash-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "squeeze-burger.js",
-      "limit": "2 KB"
+      "limit": "1.6 KB"
     },
     {
       "path": "tilt-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "turn-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "twirl-burger.js",
-      "limit": "2 KB"
+      "limit": "1.7 KB"
     }
   ]
 }
