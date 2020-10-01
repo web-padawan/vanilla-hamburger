@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/web-padawan/vanilla-hamburger/compare/v0.2.0...v0.2.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* handle distance attribute properly ([#4](https://github.com/web-padawan/vanilla-hamburger/issues/4)) ([3c0fb78](https://github.com/web-padawan/vanilla-hamburger/commit/3c0fb78e5460e7ffd9c5c068a4e4ae44382c8c52))
+
 ## [0.2.0](https://github.com/web-padawan/vanilla-hamburger/compare/v0.1.0...v0.2.0) (2020-09-28)
 
 
