@@ -67,9 +67,14 @@ describe('hamburger', () => {
       expect(burger.direction).to.equal('right');
     });
 
+    it('should set duration property when attribute changes', () => {
+      burger.setAttribute('duration', '0.5');
+      expect(burger.duration).to.equal(0.5);
+    });
+
     it('should set distance property when attribute changes', () => {
-      burger.setAttribute('distance', '0.5');
-      expect(burger.distance).to.equal(0.5);
+      burger.setAttribute('distance', 'lg');
+      expect(burger.distance).to.equal('lg');
     });
 
     it('should set size property when attribute changes', () => {

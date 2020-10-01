@@ -148,7 +148,7 @@ export abstract class Burger extends HTMLElement {
   attributeChangedCallback(prop: string, oldVal: string, newVal: string): void {
     if (oldVal !== newVal) {
       let value: unknown = newVal;
-      if (prop === 'size' || prop === 'distance') {
+      if (prop === 'size' || prop === 'duration') {
         value = newVal === null ? null : Number(newVal);
       } else if (prop === 'pressed') {
         value = newVal !== null;
