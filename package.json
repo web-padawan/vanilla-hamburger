@@ -108,7 +108,7 @@
   "size-limit": [
     {
       "path": "cross-burger.js",
-      "limit": "1.6 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "fade-burger.js",
@@ -144,7 +144,7 @@
     },
     {
       "path": "squeeze-burger.js",
-      "limit": "1.6 KB"
+      "limit": "1.7 KB"
     },
     {
       "path": "tilt-burger.js",
