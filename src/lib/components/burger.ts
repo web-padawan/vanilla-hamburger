@@ -103,6 +103,7 @@ export abstract class Burger extends HTMLElement {
 
   set pressed(pressed: boolean) {
     this[props].pressed = pressed;
+    this.toggleAttribute('pressed', !!pressed);
     this[btn] && this[btn].setAttribute('aria-pressed', `${!!pressed}`);
     this[update]();
   }
