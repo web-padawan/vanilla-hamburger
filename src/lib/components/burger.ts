@@ -95,6 +95,7 @@ export abstract class Burger extends HTMLElement {
   /**
    * Set to true when element is pressed.
    * @type {boolean}
+   * @attr pressed
    * @default false
    */
   get pressed(): boolean {

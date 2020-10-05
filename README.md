@@ -135,6 +135,10 @@ cross-burger {
   color: #999;
 }
 
+cross-burger[pressed] {
+  color: #666;
+}
+
 cross-burger::part(bar) {
   border-radius: 9em;
 }
