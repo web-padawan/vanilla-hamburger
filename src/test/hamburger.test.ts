@@ -91,6 +91,11 @@ describe('hamburger', () => {
       burger.setAttribute('pressed', '');
       expect(burger.pressed).to.equal(true);
     });
+
+    it('should set pressed attribute when property changes', () => {
+      burger.pressed = true;
+      expect(burger.hasAttribute('pressed')).to.be.true;
+    });
   });
 
   describe('native button', () => {
