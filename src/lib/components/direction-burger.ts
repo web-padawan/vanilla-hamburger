@@ -1,5 +1,4 @@
 import { Burger } from './burger.js';
-import { props, update } from '../internals';
 
 export abstract class DirectionBurger extends Burger {
   static get observedAttributes(): string[] {
@@ -12,11 +11,11 @@ export abstract class DirectionBurger extends Burger {
    * @default left
    */
   get direction(): 'left' | 'right' {
-    return this[props].direction;
+    const direction = this.getAttribute('direction');
+    return direction === 'right' ? 'right' : 'left';
   }
 
-  set direction(distance: 'left' | 'right') {
-    this[props].direction = distance;
-    this[update]();
+  set direction(direction: 'left' | 'right') {
+    this.setAttribute('direction', direction);
   }
 }

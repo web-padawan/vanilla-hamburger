@@ -1,7 +1,7 @@
 import { createTemplate, createRoot } from '../utils/dom.js';
-import { props, render, update } from '../internals.js';
+import { render, update } from '../internals.js';
 import css from '../styles/burger.js';
-import type { BurgerProps, RenderOptions } from '../types';
+import type { RenderOptions } from '../types';
 
 const AREA = 48;
 
@@ -10,16 +10,6 @@ const tpl = createTemplate(`<style>${css}</style>`);
 const btn = Symbol('btn');
 const updating = Symbol('updating');
 const prepare = Symbol('prepare');
-
-export const defaultProps: BurgerProps = {
-  size: 32,
-  direction: 'left',
-  distance: 'md',
-  duration: 0.4,
-  label: 'hamburger',
-  easing: 'cubic-bezier(0, 0, 0, 1)',
-  pressed: false
-};
 
 export abstract class Burger extends HTMLElement {
   static get observedAttributes(): string[] {
@@ -32,8 +22,6 @@ export abstract class Burger extends HTMLElement {
 
   private [btn]!: HTMLButtonElement;
 
-  private [props]: BurgerProps = {} as BurgerProps;
-
   private [updating]!: boolean;
 
   /**
@@ -42,12 +30,11 @@ export abstract class Burger extends HTMLElement {
    * @default cubic-bezier(0, 0, 0, 1)
    */
   get easing(): string {
-    return this[props].easing;
+    return this.getAttribute('easing') || 'cubic-bezier(0, 0, 0, 1)';
   }
 
   set easing(easing: string) {
-    this[props].easing = easing;
-    this[update]();
+    this.setAttribute('easing', easing);
   }
 
   /**
@@ -56,12 +43,15 @@ export abstract class Burger extends HTMLElement {
    * @default md
    */
   get distance(): 'sm' | 'md' | 'lg' {
-    return this[props].distance;
+    const dist = this.getAttribute('distance');
+    if (dist === 'sm' || dist === 'lg') {
+      return dist;
+    }
+    return 'md';
   }
 
   set distance(distance: 'sm' | 'md' | 'lg') {
-    this[props].distance = distance;
-    this[update]();
+    this.setAttribute('distance', distance);
   }
 
   /**
@@ -70,12 +60,15 @@ export abstract class Burger extends HTMLElement {
    * @default 0.4
    */
   get duration(): number {
-    return this[props].duration;
+    const value = parseFloat(this.getAttribute('duration') || '');
+    if (isFinite(value) && value >= 0) {
+      return value;
+    }
+    return 0.4;
   }
 
   set duration(duration: number) {
-    this[props].duration = duration;
-    this[update]();
+    this.setAttribute('duration', (duration as unknown) as string);
   }
 
   /**
@@ -84,12 +77,11 @@ export abstract class Burger extends HTMLElement {
    * @default {hamburger}
    */
   get label(): string {
-    return this[props].label;
+    return this.getAttribute('label') || 'hamburger';
   }
 
   set label(label: string) {
-    this[props].label = label;
-    this[btn] && this[btn].setAttribute('aria-label', label);
+    this.setAttribute('label', label);
   }
 
   /**
@@ -98,13 +90,15 @@ export abstract class Burger extends HTMLElement {
    * @default false
    */
   get pressed(): boolean {
-    return this[props].pressed;
+    return this.hasAttribute('pressed');
   }
 
   set pressed(pressed: boolean) {
-    this[props].pressed = pressed;
-    this[btn] && this[btn].setAttribute('aria-pressed', `${!!pressed}`);
-    this[update]();
+    if (pressed) {
+      this.setAttribute('pressed', 'pressed');
+    } else {
+      this.removeAttribute('pressed');
+    }
   }
 
   /**
@@ -113,12 +107,15 @@ export abstract class Burger extends HTMLElement {
    * @default 32
    */
   get size(): number {
-    return this[props].size;
+    const value = parseFloat(this.getAttribute('size') || '');
+    if (isFinite(value) && value > 0) {
+      return value;
+    }
+    return 32;
   }
 
   set size(size: number) {
-    this[props].size = size;
-    this[update]();
+    this.setAttribute('size', (size as unknown) as string);
   }
 
   constructor() {
@@ -137,25 +134,18 @@ export abstract class Burger extends HTMLElement {
       if (this.hasOwnProperty(k)) {
         const value = this[k as keyof this];
         delete this[k as keyof this];
-        this[k as keyof this] = value;
-      } else if (!this[k as keyof this]) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        this[k as keyof this] = defaultProps[k as keyof BurgerProps] as any;
+        this.setAttribute(k, (value as unknown) as string);
       }
     });
+
+    this.attributeChangedCallback();
   }
 
-  attributeChangedCallback(prop: string, oldVal: string, newVal: string): void {
-    if (oldVal !== newVal) {
-      let value: unknown = newVal;
-      if (prop == 'size' || prop == 'duration') {
-        value = newVal === null ? null : Number(newVal);
-      } else if (prop === 'pressed') {
-        value = newVal !== null;
-      }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this[prop as keyof this] = value as any;
-    }
+  attributeChangedCallback(): void {
+    this[btn] && this[btn].setAttribute('aria-pressed', (this.pressed as unknown) as string);
+    this[btn] && this[btn].setAttribute('aria-label', this.label);
+
+    this[update]();
   }
 
   handleEvent(event: KeyboardEvent | MouseEvent): void {

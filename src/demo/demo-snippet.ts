@@ -3,8 +3,17 @@ import { registerLanguages } from 'highlight-ts/es/languages.js';
 import { XML } from 'highlight-ts/es/languages/xml.js';
 import { JavaScript } from 'highlight-ts/es/languages/javascript.js';
 import { init, process } from 'highlight-ts/es/process.js';
-import { defaultProps } from '../lib/components/burger.js';
 import type { BurgerProps } from '../lib/types.js';
+
+export const defaultProps: BurgerProps = {
+  size: 32,
+  direction: 'left',
+  distance: 'md',
+  duration: 0.4,
+  label: 'hamburger',
+  easing: 'cubic-bezier(0, 0, 0, 1)',
+  pressed: false
+};
 
 registerLanguages(XML, JavaScript);
 
