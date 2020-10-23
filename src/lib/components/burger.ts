@@ -91,7 +91,7 @@ export abstract class Burger extends HTMLElement {
 
   set disabled(disabled: boolean) {
     this[props].disabled = disabled;
-    this.toggleAttribute('disabled', !!disabled);
+    this.toggleAttribute('disabled', disabled);
     this[btn] && this[btn].toggleAttribute('disabled', disabled);
   }
 
