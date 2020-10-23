@@ -107,7 +107,7 @@ None of these tools are needed when importing the component from CDN.
 | `"turn-burger.js"`    | `<turn-burger>`    |
 | `"twirl-burger.js"`   | `<twirl-burger>`   |
 
-When using one hamburger, ~1.6 KB will be added to your bundle (min + gzip).
+When using one hamburger, ~1.8 KB will be added to your bundle (min + gzip).
 
 ## Properties
 
