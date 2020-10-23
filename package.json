@@ -1,6 +1,6 @@
 {
   "name": "vanilla-hamburger",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A tiny framework agnostic hamburger button element for modern web apps",
   "author": "Serhii Kulykov <iamkulykov@gmail.com>",
   "license": "MIT",

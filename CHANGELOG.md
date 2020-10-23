@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/web-padawan/vanilla-hamburger/compare/v0.2.2...v0.2.3) (2020-10-23)
+
+
+### Features
+
+* add disabled property and attribute ([#8](https://github.com/web-padawan/vanilla-hamburger/issues/8)) ([47d7dfd](https://github.com/web-padawan/vanilla-hamburger/commit/47d7dfd75385e990fd26b10206fdba40b809fc65))
+
 ### [0.2.2](https://github.com/web-padawan/vanilla-hamburger/compare/v0.2.1...v0.2.2) (2020-10-05)
 
 
