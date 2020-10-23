@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "tilt-burger.js",
   "module": "tilt-burger.js",
+  "types": "tilt-burger.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/web-padawan/vanilla-hamburger.git"
@@ -39,6 +40,24 @@
     "/*-burger.js.map",
     "custom-elements.json"
   ],
+  "exports": {
+    ".": "./tilt-burger.js",
+    "./cross-burger.js": "./cross-burger.js",
+    "./fade-burger.js": "./fade-burger.js",
+    "./pivot-burger.js": "./pivot-burger.js",
+    "./rotate-burger.js": "./rotate-burger.js",
+    "./slant-burger.js": "./slant-burger.js",
+    "./sling-burger.js": "./sling-burger.js",
+    "./spin-burger.js": "./spin-burger.js",
+    "./spiral-burger.js": "./spiral-burger.js",
+    "./squash-burger.js": "./squash-burger.js",
+    "./squeeze-burger.js": "./squeeze-burger.js",
+    "./tilt-burger.js": "./tilt-burger.js",
+    "./turn-burger.js": "./turn-burger.js",
+    "./twirl-burger.js": "./twirl-burger.js",
+    "./lib/entrypoints/*": "./lib/entrypoints/*.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "analyze": "wca analyze *-burger.js --format json --outFile custom-elements.json",
     "build": "npm run styles && tsc",
