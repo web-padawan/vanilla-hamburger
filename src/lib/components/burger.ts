@@ -14,6 +14,7 @@ const prepare = Symbol('prepare');
 export const defaultProps: BurgerProps = {
   size: 32,
   direction: 'left',
+  disabled: false,
   distance: 'md',
   duration: 0.4,
   label: 'hamburger',
@@ -23,7 +24,7 @@ export const defaultProps: BurgerProps = {
 
 export abstract class Burger extends HTMLElement {
   static get observedAttributes(): string[] {
-    return ['distance', 'duration', 'easing', 'pressed', 'size', 'label'];
+    return ['disabled', 'distance', 'duration', 'easing', 'pressed', 'size', 'label'];
   }
 
   protected abstract get lines(): number;
@@ -76,6 +77,22 @@ export abstract class Burger extends HTMLElement {
   set duration(duration: number) {
     this[props].duration = duration;
     this[update]();
+  }
+
+  /**
+   * When set to true, the internal <button> element is disabled.
+   * @type {boolean}
+   * @attr disabled
+   * @default false
+   */
+  get disabled(): boolean {
+    return this[props].disabled;
+  }
+
+  set disabled(disabled: boolean) {
+    this[props].disabled = disabled;
+    this.toggleAttribute('disabled', disabled);
+    this[btn] && this[btn].toggleAttribute('disabled', disabled);
   }
 
   /**
@@ -152,7 +169,7 @@ export abstract class Burger extends HTMLElement {
       let value: unknown = newVal;
       if (prop == 'size' || prop == 'duration') {
         value = newVal === null ? null : Number(newVal);
-      } else if (prop === 'pressed') {
+      } else if (prop == 'pressed' || prop == 'disabled') {
         value = newVal !== null;
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -173,6 +190,12 @@ export abstract class Burger extends HTMLElement {
 
   blur(): void {
     this[btn] && this[btn].blur();
+  }
+
+  click(): void {
+    if (!this.disabled) {
+      super.click();
+    }
   }
 
   private [prepare](): RenderOptions {

@@ -31,13 +31,16 @@ export class DemoSnippet extends HTMLElement {
 
     const attrs = knobs.filter(({ name, value }) => value && value != defaultProps[name as keyof BurgerProps]);
 
+    const count = attrs.length;
+
     attrs
       .sort((a, b) => (a.name > b.name ? 1 : -1))
       .forEach(({ name, value }) => {
-        markup += `\n${INDENT}${name}="${value}"`;
+        markup +=
+          name === 'disabled' ? (count === 1 ? ` ${name}` : `\n${INDENT}${name}`) : `\n${INDENT}${name}="${value}"`;
       });
 
-    markup += `${attrs.length ? '\n' : ''}></${element}>`;
+    markup += `${count === 0 || (count === 1 && attrs[0].name === 'disabled') ? '' : '\n'}></${element}>`;
 
     const { value } = process(highlighter, markup, ['xml', 'js']);
 

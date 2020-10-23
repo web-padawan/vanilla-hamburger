@@ -32,6 +32,10 @@ describe('hamburger', () => {
       expect(burger.direction).to.equal('left');
     });
 
+    it('should set default disabled property value', () => {
+      expect(burger.disabled).to.equal(false);
+    });
+
     it('should set default distance property value', () => {
       expect(burger.distance).to.equal('md');
     });
@@ -96,6 +100,16 @@ describe('hamburger', () => {
       burger.pressed = true;
       expect(burger.hasAttribute('pressed')).to.be.true;
     });
+
+    it('should set disabled property when attribute changes', () => {
+      burger.setAttribute('disabled', '');
+      expect(burger.disabled).to.equal(true);
+    });
+
+    it('should set disabled attribute when property changes', () => {
+      burger.disabled = true;
+      expect(burger.hasAttribute('disabled')).to.be.true;
+    });
   });
 
   describe('native button', () => {
@@ -128,6 +142,12 @@ describe('hamburger', () => {
       expect(button.getAttribute('aria-pressed')).to.equal('true');
     });
 
+    it('should not throw on disabled change if not connected', () => {
+      expect(() => {
+        document.createElement('tilt-burger').disabled = true;
+      }).to.not.throw(Error);
+    });
+
     it('should not throw on pressed change if not connected', () => {
       expect(() => {
         document.createElement('tilt-burger').pressed = true;
@@ -138,6 +158,13 @@ describe('hamburger', () => {
       expect(() => {
         document.createElement('tilt-burger').label = 'menu';
       }).to.not.throw(Error);
+    });
+
+    it('should toggle disabled on the native button', () => {
+      burger.disabled = true;
+      expect(button.hasAttribute('disabled')).to.be.true;
+      burger.disabled = false;
+      expect(button.hasAttribute('disabled')).to.be.false;
     });
 
     it('should set aria-label on the native button', () => {
@@ -214,6 +241,12 @@ describe('hamburger', () => {
       burger.addEventListener('pressed-changed', spy);
       burger.click();
       expect(spy.callCount).to.equal(1);
+    });
+
+    it('should not toggle pressed property on click if disabled', () => {
+      burger.disabled = true;
+      burger.click();
+      expect(burger.pressed).to.equal(false);
     });
   });
 
