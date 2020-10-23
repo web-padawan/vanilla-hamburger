@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://web-padawan.github.io/vanilla-hamburger/">
-    <img alt="Preview" src="preview.gif" height="80" width="310">
+    <img alt="Preview" src="https://raw.githubusercontent.com/web-padawan/vanilla-hamburger/master/preview.gif" height="80" width="310">
   </a>
 </p>
 
