@@ -31,8 +31,6 @@
   ],
   "files": [
     "ACKNOWLEDGMENTS",
-    "LICENSE",
-    "README.md",
     "/lib",
     "/*-burger.d.ts",
     "/*-burger.d.ts.map",
