@@ -8,8 +8,8 @@
   <a href="https://npmjs.org/package/vanilla-hamburger">
     <img alt="npm" src="https://img.shields.io/npm/v/vanilla-hamburger.svg" />
   </a>
-  <a href="https://travis-ci.org/web-padawan/vanilla-hamburger">
-    <img alt="build" src="https://travis-ci.org/web-padawan/vanilla-hamburger.svg?branch=master" />
+  <a href="https://github.com/web-padawan/vanilla-hamburger/actions">
+    <img alt="build" src="https://github.com/web-padawan/vanilla-hamburger/workflows/tests/badge.svg" />
   </a>
   <a href="https://bundlephobia.com/result?p=vanilla-hamburger">
     <img alt="gzip size" src="https://badgen.net/bundlephobia/minzip/vanilla-hamburger" />
