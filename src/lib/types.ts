@@ -1,5 +1,6 @@
 export interface BurgerProps {
   direction: 'left' | 'right';
+  disabled: boolean;
   distance: 'sm' | 'md' | 'lg';
   duration: number;
   easing: string;

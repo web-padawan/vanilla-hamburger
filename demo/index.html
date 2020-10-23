@@ -102,13 +102,16 @@
             <option>twirl</option>
           </select>
         </div>
-        <h2>Properties</h2>
         <div class="field direction">
           <label for="direction">Direction</label>
           <select id="direction">
             <option>left</option>
             <option>right</option>
           </select>
+        </div>
+        <div class="field disabled">
+          <label for="disabled">Disabled</label>
+          <input id="disabled" type="checkbox" />
         </div>
         <div class="field distance">
           <label for="distance">Distance</label>
@@ -167,6 +170,7 @@
       const wrappers = document.querySelectorAll('.burgers > div');
       const burgers = document.querySelectorAll('.burgers :not(div)');
       const direction = document.getElementById('direction');
+      const disabled = document.getElementById('disabled');
       const distance = document.getElementById('distance');
       const easing = document.getElementById('easing');
       const label = document.getElementById('label');
@@ -197,7 +201,7 @@
         const noDirection = hasNoDirection(tag);
         direction.value = noDirection ? '' : props.direction || 'left';
         direction.toggleAttribute('disabled', noDirection);
-        direction.parentElement.classList.toggle('disabled', noDirection);
+        direction.parentElement.classList.toggle('inactive', noDirection);
       };
 
       element.addEventListener('change', (event) => {
@@ -247,6 +251,10 @@
 
       size.addEventListener('change', (event) => {
         setProperty('size', event.target.value);
+      });
+
+      disabled.addEventListener('change', (event) => {
+        setProperty('disabled', event.target.checked);
       });
     </script>
   </body>

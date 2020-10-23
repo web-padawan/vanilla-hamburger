@@ -47,6 +47,12 @@ describe('visual tests', () => {
         await nextFrame();
         await visualDiff(burger, `${type}-pressed`);
       });
+
+      it(`should render disabled ${type}-burger`, async () => {
+        burger.disabled = true;
+        await nextFrame();
+        await visualDiff(burger, `${type}-disabled`);
+      });
     });
   });
 });

@@ -22,7 +22,7 @@
 
 ## Features
 
-- **Small**: Just 1,6 KB (minified and gzipped). [Size Limit](https://github.com/ai/size-limit) controls the size.
+- **Small**: Just 1,8 KB (minified and gzipped). [Size Limit](https://github.com/ai/size-limit) controls the size.
 - **Fast**: Built with standards based Custom Elements.
 - **Bulletproof**: Written in strict TypeScript and covered by 30+ tests.
 - **Framework-agnostic**: Can be used [with any framework](https://custom-elements-everywhere.com/).
@@ -116,6 +116,7 @@ The following properties can be used to customize hamburger elements:
 | Property    | Default                    | Description                                             |
 | ----------- | -------------------------- | ------------------------------------------------------- |
 | `direction` | `left`                     | The animation direction of the icon, left or right.     |
+| `disabled`  | `false`                    | When set to true, the internal `<button>` id disabled.  |
 | `distance`  | `md`                       | The distance between the lines: `sm`, `md` or `lg`.     |
 | `duration`  | `0.4`                      | The duration of the animation. Can be set to zero.      |
 | `easing`    | `cubic-bezier(0, 0, 0, 1)` | A valid `transition-timing-function` CSS value.         |
@@ -137,6 +138,10 @@ cross-burger {
 
 cross-burger[pressed] {
   color: #666;
+}
+
+cross-burger[disabled] {
+  opacity: 0.7;
 }
 
 cross-burger::part(bar) {
