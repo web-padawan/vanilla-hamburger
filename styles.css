@@ -65,8 +65,8 @@ body {
   padding: 1rem;
 }
 
-h2 {
-  font-size: 1rem;
+.field {
+  min-height: 2.5rem;
 }
 
 label {
@@ -85,7 +85,11 @@ input, select {
   box-shadow: none;
 }
 
-.disabled > label {
+input[type="checkbox"] {
+  width: auto;
+}
+
+.inactive > label {
   opacity: 0.5;
 }
 
@@ -163,7 +167,6 @@ pre {
     flex-direction: column;
   }
 
-  h2,
   .field,
   demo-snippet {
     display: none;
