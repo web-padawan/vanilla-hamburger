@@ -14,6 +14,9 @@
   <a href="https://bundlephobia.com/result?p=vanilla-hamburger">
     <img alt="gzip size" src="https://badgen.net/bundlephobia/minzip/vanilla-hamburger" />
   </a>
+  <a href="https://npmjs.org/package/vanilla-hamburger">
+    <img alt="no dependencies" src="https://badgen.net/bundlephobia/dependency-count/vanilla-hamburger" />
+  </a>
 </div>
 
 <p align="center">
