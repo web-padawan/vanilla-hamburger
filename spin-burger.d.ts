@@ -7,9 +7,7 @@ import { Spin } from './lib/entrypoints/spin.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class SpinBurger extends Spin {}
-
-customElements.define('spin-burger', SpinBurger);
+export declare class SpinBurger extends Spin {}
 
 declare global {
   interface HTMLElementTagNameMap {

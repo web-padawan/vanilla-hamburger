@@ -7,9 +7,7 @@ import { Spiral } from './lib/entrypoints/spiral.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class SpiralBurger extends Spiral {}
-
-customElements.define('spiral-burger', SpiralBurger);
+export declare class SpiralBurger extends Spiral {}
 
 declare global {
   interface HTMLElementTagNameMap {

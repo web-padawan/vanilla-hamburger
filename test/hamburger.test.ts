@@ -1,7 +1,7 @@
 import { expect } from '@esm-bundle/chai';
 import sinon from 'sinon';
 import { fixture, html, nextFrame } from '@open-wc/testing-helpers';
-import type { TiltBurger } from '../tilt-burger';
+import type { TiltBurger } from '../tilt-burger.js';
 
 describe('hamburger', () => {
   let burger: TiltBurger;
@@ -14,7 +14,7 @@ describe('hamburger', () => {
       burger.distance = 'lg';
       burger.duration = 0.5;
       burger.size = 24;
-      await import('../tilt-burger');
+      await import('../tilt-burger.js');
       expect(burger.direction).to.equal('right');
       expect(burger.distance).to.equal('lg');
       expect(burger.duration).to.equal(0.5);

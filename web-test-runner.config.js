@@ -6,7 +6,7 @@ module.exports = {
   plugins: [
     esbuildPlugin({ ts: true }),
     visualRegressionPlugin({
-      baseDir: 'src/test/visual/screenshots',
+      baseDir: 'test/visual/screenshots',
       diffOptions: {
         threshold: 0.2
       },

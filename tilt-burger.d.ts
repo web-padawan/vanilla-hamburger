@@ -7,9 +7,7 @@ import { Tilt } from './lib/entrypoints/tilt.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class TiltBurger extends Tilt {}
-
-customElements.define('tilt-burger', TiltBurger);
+export declare class TiltBurger extends Tilt {}
 
 declare global {
   interface HTMLElementTagNameMap {

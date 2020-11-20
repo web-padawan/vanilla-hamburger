@@ -7,9 +7,7 @@ import { Slant } from './lib/entrypoints/slant.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class SlantBurger extends Slant {}
-
-customElements.define('slant-burger', SlantBurger);
+export declare class SlantBurger extends Slant {}
 
 declare global {
   interface HTMLElementTagNameMap {

@@ -7,9 +7,7 @@ import { Pivot } from './lib/entrypoints/pivot.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class PivotBurger extends Pivot {}
-
-customElements.define('pivot-burger', PivotBurger);
+export declare class PivotBurger extends Pivot {}
 
 declare global {
   interface HTMLElementTagNameMap {

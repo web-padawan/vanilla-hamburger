@@ -7,9 +7,7 @@ import { Squash } from './lib/entrypoints/squash.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class SquashBurger extends Squash {}
-
-customElements.define('squash-burger', SquashBurger);
+export declare class SquashBurger extends Squash {}
 
 declare global {
   interface HTMLElementTagNameMap {

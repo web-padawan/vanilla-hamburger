@@ -26,12 +26,11 @@ async function sassRender(sourceFile) {
   return writeFile(outputFile, newContent, 'utf-8');
 }
 
-glob('./src/lib/styles/*.scss', (err, files) => {
-  files
-    .forEach(file => {
-      sassRender(file).catch(error => {
-        console.error(error);
-        process.exit(-1);
-      });
+glob('./lib/styles/*.scss', (err, files) => {
+  files.forEach((file) => {
+    sassRender(file).catch((error) => {
+      console.error(error);
+      process.exit(-1);
     });
+  });
 });
