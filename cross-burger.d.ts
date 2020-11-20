@@ -7,9 +7,7 @@ import { Cross } from './lib/entrypoints/cross.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class CrossBurger extends Cross {}
-
-customElements.define('cross-burger', CrossBurger);
+export declare class CrossBurger extends Cross {}
 
 declare global {
   interface HTMLElementTagNameMap {

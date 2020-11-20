@@ -7,9 +7,7 @@ import { Squeeze } from './lib/entrypoints/squeeze.js';
  * @csspart bar - Animated bar elements.
  * @csspart button - Native button element.
  */
-export class SqueezeBurger extends Squeeze {}
-
-customElements.define('squeeze-burger', SqueezeBurger);
+export declare class SqueezeBurger extends Squeeze {}
 
 declare global {
   interface HTMLElementTagNameMap {
