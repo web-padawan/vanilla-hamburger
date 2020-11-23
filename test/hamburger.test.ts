@@ -218,6 +218,7 @@ describe('hamburger', () => {
 
     it('should set bars background when color is set', () => {
       burger.style.color = 'red';
+      console.log((burger.shadowRoot!.querySelector('style') as HTMLElement).textContent);
       bars.forEach((bar) => {
         expect(getComputedStyle(bar).backgroundColor).to.equal('rgb(255, 0, 0)');
       });
